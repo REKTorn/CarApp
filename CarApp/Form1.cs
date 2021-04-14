@@ -16,5 +16,25 @@ namespace CarApp
         {
             InitializeComponent();
         }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnClearAll_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnClearMarked_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lsvCars_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

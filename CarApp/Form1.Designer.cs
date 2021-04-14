@@ -34,14 +34,14 @@
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.listView1 = new System.Windows.Forms.ListView();
+            this.lsvCars = new System.Windows.Forms.ListView();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnAdd = new System.Windows.Forms.Button();
+            this.btnClearAll = new System.Windows.Forms.Button();
+            this.btnClearMarked = new System.Windows.Forms.Button();
             this.regnr = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.make = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.model = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -52,7 +52,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.button1);
+            this.groupBox1.Controls.Add(this.btnAdd);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
@@ -111,21 +111,22 @@
             this.checkBox1.Text = "For Sale";
             this.checkBox1.UseVisualStyleBackColor = true;
             // 
-            // listView1
+            // lsvCars
             // 
-            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.lsvCars.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.regnr,
             this.make,
             this.model,
             this.year,
             this.forsale});
-            this.listView1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.listView1.Location = new System.Drawing.Point(13, 120);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(775, 269);
-            this.listView1.TabIndex = 1;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.View = System.Windows.Forms.View.Details;
+            this.lsvCars.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.lsvCars.Location = new System.Drawing.Point(13, 120);
+            this.lsvCars.Name = "lsvCars";
+            this.lsvCars.Size = new System.Drawing.Size(775, 269);
+            this.lsvCars.TabIndex = 1;
+            this.lsvCars.UseCompatibleStateImageBehavior = false;
+            this.lsvCars.View = System.Windows.Forms.View.Details;
+            this.lsvCars.SelectedIndexChanged += new System.EventHandler(this.lsvCars_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -167,35 +168,39 @@
             this.label4.TabIndex = 8;
             this.label4.Text = "Year";
             // 
-            // button1
+            // btnAdd
             // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.button1.Location = new System.Drawing.Point(610, 59);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(106, 24);
-            this.button1.TabIndex = 9;
-            this.button1.Text = "Add";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.btnAdd.Location = new System.Drawing.Point(610, 59);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(106, 28);
+            this.btnAdd.TabIndex = 9;
+            this.btnAdd.Text = "Add";
+            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
-            // button2
+            // btnClearAll
             // 
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.button2.Location = new System.Drawing.Point(73, 405);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(144, 23);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "Clear all";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnClearAll.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.btnClearAll.Location = new System.Drawing.Point(73, 405);
+            this.btnClearAll.Name = "btnClearAll";
+            this.btnClearAll.Size = new System.Drawing.Size(144, 28);
+            this.btnClearAll.TabIndex = 2;
+            this.btnClearAll.Text = "Clear all";
+            this.btnClearAll.UseVisualStyleBackColor = true;
+            this.btnClearAll.Click += new System.EventHandler(this.btnClearAll_Click);
             // 
-            // button3
+            // btnClearMarked
             // 
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.button3.Location = new System.Drawing.Point(584, 405);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(145, 23);
-            this.button3.TabIndex = 3;
-            this.button3.Text = "Clear marked";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnClearMarked.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.btnClearMarked.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnClearMarked.Location = new System.Drawing.Point(584, 405);
+            this.btnClearMarked.Name = "btnClearMarked";
+            this.btnClearMarked.Size = new System.Drawing.Size(145, 28);
+            this.btnClearMarked.TabIndex = 3;
+            this.btnClearMarked.Text = "Clear marked";
+            this.btnClearMarked.UseVisualStyleBackColor = true;
+            this.btnClearMarked.Click += new System.EventHandler(this.btnClearMarked_Click);
             // 
             // regnr
             // 
@@ -222,10 +227,12 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.listView1);
+            this.Controls.Add(this.btnClearMarked);
+            this.Controls.Add(this.btnClearAll);
+            this.Controls.Add(this.lsvCars);
             this.Controls.Add(this.groupBox1);
+            this.MaximumSize = new System.Drawing.Size(816, 489);
+            this.MinimumSize = new System.Drawing.Size(816, 489);
             this.Name = "Form1";
             this.Text = "Form1";
             this.groupBox1.ResumeLayout(false);
@@ -237,7 +244,7 @@
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
@@ -247,14 +254,14 @@
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ListView lsvCars;
         private System.Windows.Forms.ColumnHeader regnr;
         private System.Windows.Forms.ColumnHeader make;
         private System.Windows.Forms.ColumnHeader model;
         private System.Windows.Forms.ColumnHeader year;
         private System.Windows.Forms.ColumnHeader forsale;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnClearAll;
+        private System.Windows.Forms.Button btnClearMarked;
     }
 }
 
