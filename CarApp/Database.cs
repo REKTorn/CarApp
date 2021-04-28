@@ -37,5 +37,18 @@ namespace CarApp
                 dbConn.Close();
             }
         }
+
+        public int AddCarRow(Car car)
+        {
+            string qInsert = "INSERT INTO car ('regNr', 'make', 'model', 'year', 'forSale') VALUES (@regNr, @make, @model, @year, @forSale);";
+
+            SQLiteCommand dbCommand = new SQLiteCommand(qInsert, dbConn);
+            OpenConnection();
+
+            dbCommand.Parameters.AddWithValue(@"regNr", car.GetRegNr());
+            dbCommand.Parameters.AddWithValue(@"make", car.GetMake());
+            dbCommand.Parameters.AddWithValue(@"model", car.GetModel());
+            dbCommand.Parameters.AddWithValue(@"year", car.GetYear());
+        }
     }
 }
