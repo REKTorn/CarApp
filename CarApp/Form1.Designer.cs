@@ -47,11 +47,13 @@
             this.forsale = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btnClearAll = new System.Windows.Forms.Button();
             this.btnRemoveMarked = new System.Windows.Forms.Button();
+            this.btnSearch = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnSearch);
             this.groupBox1.Controls.Add(this.btnAdd);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label3);
@@ -62,18 +64,21 @@
             this.groupBox1.Controls.Add(this.tbxModel);
             this.groupBox1.Controls.Add(this.tbxMake);
             this.groupBox1.Controls.Add(this.tbxRegNr);
-            this.groupBox1.Location = new System.Drawing.Point(13, 13);
+            this.groupBox1.Location = new System.Drawing.Point(20, 20);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(775, 100);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.groupBox1.Size = new System.Drawing.Size(1162, 154);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             // 
             // btnAdd
             // 
             this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.btnAdd.Location = new System.Drawing.Point(610, 59);
+            this.btnAdd.Location = new System.Drawing.Point(975, 23);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(106, 28);
+            this.btnAdd.Size = new System.Drawing.Size(159, 43);
             this.btnAdd.TabIndex = 9;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = true;
@@ -83,9 +88,10 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label4.Location = new System.Drawing.Point(305, 62);
+            this.label4.Location = new System.Drawing.Point(322, 95);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(38, 17);
+            this.label4.Size = new System.Drawing.Size(53, 25);
             this.label4.TabIndex = 8;
             this.label4.Text = "Year";
             // 
@@ -93,9 +99,10 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label3.Location = new System.Drawing.Point(305, 19);
+            this.label3.Location = new System.Drawing.Point(322, 29);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(46, 17);
+            this.label3.Size = new System.Drawing.Size(66, 25);
             this.label3.TabIndex = 7;
             this.label3.Text = "Model";
             // 
@@ -103,9 +110,10 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label2.Location = new System.Drawing.Point(57, 62);
+            this.label2.Location = new System.Drawing.Point(28, 95);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(42, 17);
+            this.label2.Size = new System.Drawing.Size(61, 25);
             this.label2.TabIndex = 6;
             this.label2.Text = "Make";
             // 
@@ -113,9 +121,10 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label1.Location = new System.Drawing.Point(57, 19);
+            this.label1.Location = new System.Drawing.Point(28, 29);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(53, 17);
+            this.label1.Size = new System.Drawing.Size(72, 25);
             this.label1.TabIndex = 5;
             this.label1.Text = "Reg Nr";
             // 
@@ -123,9 +132,10 @@
             // 
             this.cbxForSale.AutoSize = true;
             this.cbxForSale.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.cbxForSale.Location = new System.Drawing.Point(610, 21);
+            this.cbxForSale.Location = new System.Drawing.Point(709, 28);
+            this.cbxForSale.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.cbxForSale.Name = "cbxForSale";
-            this.cbxForSale.Size = new System.Drawing.Size(80, 21);
+            this.cbxForSale.Size = new System.Drawing.Size(112, 29);
             this.cbxForSale.TabIndex = 4;
             this.cbxForSale.Text = "For Sale";
             this.cbxForSale.UseVisualStyleBackColor = true;
@@ -133,33 +143,37 @@
             // tbxYear
             // 
             this.tbxYear.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.tbxYear.Location = new System.Drawing.Point(373, 62);
+            this.tbxYear.Location = new System.Drawing.Point(424, 95);
+            this.tbxYear.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tbxYear.Name = "tbxYear";
-            this.tbxYear.Size = new System.Drawing.Size(100, 23);
+            this.tbxYear.Size = new System.Drawing.Size(148, 30);
             this.tbxYear.TabIndex = 3;
             // 
             // tbxModel
             // 
             this.tbxModel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.tbxModel.Location = new System.Drawing.Point(373, 19);
+            this.tbxModel.Location = new System.Drawing.Point(424, 29);
+            this.tbxModel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tbxModel.Name = "tbxModel";
-            this.tbxModel.Size = new System.Drawing.Size(100, 23);
+            this.tbxModel.Size = new System.Drawing.Size(148, 30);
             this.tbxModel.TabIndex = 2;
             // 
             // tbxMake
             // 
             this.tbxMake.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.tbxMake.Location = new System.Drawing.Point(113, 62);
+            this.tbxMake.Location = new System.Drawing.Point(112, 95);
+            this.tbxMake.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tbxMake.Name = "tbxMake";
-            this.tbxMake.Size = new System.Drawing.Size(100, 23);
+            this.tbxMake.Size = new System.Drawing.Size(148, 30);
             this.tbxMake.TabIndex = 1;
             // 
             // tbxRegNr
             // 
             this.tbxRegNr.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.tbxRegNr.Location = new System.Drawing.Point(113, 19);
+            this.tbxRegNr.Location = new System.Drawing.Point(112, 29);
+            this.tbxRegNr.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tbxRegNr.Name = "tbxRegNr";
-            this.tbxRegNr.Size = new System.Drawing.Size(100, 23);
+            this.tbxRegNr.Size = new System.Drawing.Size(148, 30);
             this.tbxRegNr.TabIndex = 0;
             // 
             // lsvCars
@@ -171,9 +185,10 @@
             this.year,
             this.forsale});
             this.lsvCars.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.lsvCars.Location = new System.Drawing.Point(13, 120);
+            this.lsvCars.Location = new System.Drawing.Point(20, 185);
+            this.lsvCars.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.lsvCars.Name = "lsvCars";
-            this.lsvCars.Size = new System.Drawing.Size(775, 269);
+            this.lsvCars.Size = new System.Drawing.Size(1160, 412);
             this.lsvCars.TabIndex = 1;
             this.lsvCars.UseCompatibleStateImageBehavior = false;
             this.lsvCars.View = System.Windows.Forms.View.Details;
@@ -182,29 +197,35 @@
             // regnr
             // 
             this.regnr.Text = "Reg Nr";
+            this.regnr.Width = 137;
             // 
             // make
             // 
             this.make.Text = "Make";
+            this.make.Width = 145;
             // 
             // model
             // 
             this.model.Text = "Model";
+            this.model.Width = 135;
             // 
             // year
             // 
             this.year.Text = "Year";
+            this.year.Width = 155;
             // 
             // forsale
             // 
             this.forsale.Text = "For Sale";
+            this.forsale.Width = 158;
             // 
             // btnClearAll
             // 
             this.btnClearAll.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.btnClearAll.Location = new System.Drawing.Point(73, 405);
+            this.btnClearAll.Location = new System.Drawing.Point(110, 623);
+            this.btnClearAll.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnClearAll.Name = "btnClearAll";
-            this.btnClearAll.Size = new System.Drawing.Size(144, 28);
+            this.btnClearAll.Size = new System.Drawing.Size(216, 43);
             this.btnClearAll.TabIndex = 2;
             this.btnClearAll.Text = "Clear all";
             this.btnClearAll.UseVisualStyleBackColor = true;
@@ -214,25 +235,38 @@
             // 
             this.btnRemoveMarked.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.btnRemoveMarked.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRemoveMarked.Location = new System.Drawing.Point(584, 405);
+            this.btnRemoveMarked.Location = new System.Drawing.Point(876, 623);
+            this.btnRemoveMarked.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnRemoveMarked.Name = "btnRemoveMarked";
-            this.btnRemoveMarked.Size = new System.Drawing.Size(145, 28);
+            this.btnRemoveMarked.Size = new System.Drawing.Size(218, 43);
             this.btnRemoveMarked.TabIndex = 3;
             this.btnRemoveMarked.Text = "Remove marked";
             this.btnRemoveMarked.UseVisualStyleBackColor = true;
             this.btnRemoveMarked.Click += new System.EventHandler(this.btnRemoveMarked_Click);
             // 
+            // btnSearch
+            // 
+            this.btnSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.btnSearch.Location = new System.Drawing.Point(651, 90);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(246, 41);
+            this.btnSearch.TabIndex = 10;
+            this.btnSearch.Text = "Search with Reg Nr";
+            this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1191, 666);
             this.Controls.Add(this.btnRemoveMarked);
             this.Controls.Add(this.btnClearAll);
             this.Controls.Add(this.lsvCars);
             this.Controls.Add(this.groupBox1);
-            this.MaximumSize = new System.Drawing.Size(816, 489);
-            this.MinimumSize = new System.Drawing.Size(816, 489);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.MaximumSize = new System.Drawing.Size(1213, 722);
+            this.MinimumSize = new System.Drawing.Size(1213, 722);
             this.Name = "Form1";
             this.Text = "Form1";
             this.groupBox1.ResumeLayout(false);
@@ -262,6 +296,7 @@
         private System.Windows.Forms.ColumnHeader forsale;
         private System.Windows.Forms.Button btnClearAll;
         private System.Windows.Forms.Button btnRemoveMarked;
+        private System.Windows.Forms.Button btnSearch;
     }
 }
 

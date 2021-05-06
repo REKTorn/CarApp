@@ -7,6 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Net;
+using System.IO;
+using Newtonsoft.Json.Linq;
 
 namespace CarApp
 {
@@ -15,7 +18,21 @@ namespace CarApp
         public Form1()
         {
             InitializeComponent();
+            InitListView();
             tbxRegNr.Focus();
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(tbxRegNr.Text))
+            {
+                tbxRegNr.Text = tbxRegNr.Text.ToUpper();
+                PrintData(tbxRegNr.Text);
+            }
+            else
+            {
+                MessageBox.Show("Du måste ange ett registreringsnummer", "Inmatning Saknas", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -26,11 +43,21 @@ namespace CarApp
             }
             else
             {
-                ListViewItem item = CreateListViewItem(tbxRegNr.Text, tbxMake.Text, tbxModel.Text, tbxYear.Text, cbxForSale.Checked);
-                lsvCars.Items.Add(item);
+                Car car = new Car(tbxRegNr.Text, tbxMake.Text, tbxModel.Text, Convert.ToInt32(tbxYear.Text), cbxForSale.Checked);
+                AddCarToListView(car);
+
+                int result = dbObject.AddCarRow(car);
+                MessageBox.Show("You have added " + Convert.ToString(result) + " cars.");
+
                 ClearTextboxes();
                 btnClearAll.Enabled = true;
             }
+        }
+
+        private void AddCarToListView(Car car)
+        {
+            ListViewItem item = CreateListViewItem(car);
+            lsvCars.Items.Add(item);
         }
 
         private ListViewItem CreateListViewItem(string regNr, string make, string model, string year, bool forSale)
@@ -78,5 +105,7 @@ namespace CarApp
             cbxForSale.Checked = false;
             tbxRegNr.Focus();
         }
+
+
     }
 }
