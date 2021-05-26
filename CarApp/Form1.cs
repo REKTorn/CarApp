@@ -22,6 +22,15 @@ namespace CarApp
             tbxRegNr.Focus();
         }
 
+        private void InitListView()
+        {
+            List<Car> cars = dbObject.getRowsFromCars();
+            foreach (var item in cars)
+            {
+                AddCarToListView(item);
+            }
+        }
+
         private void btnSearch_Click(object sender, EventArgs e)
         {
             if (!string.IsNullOrEmpty(tbxRegNr.Text))
@@ -60,13 +69,13 @@ namespace CarApp
             lsvCars.Items.Add(item);
         }
 
-        private ListViewItem CreateListViewItem(string regNr, string make, string model, string year, bool forSale)
+        private ListViewItem CreateListViewItem(Car car)
         {
-            ListViewItem item = new ListViewItem(regNr);
-            item.SubItems.Add(make);
-            item.SubItems.Add(model);
-            item.SubItems.Add(year);
-            item.SubItems.Add(forSale ? "Yes" : "No");
+            ListViewItem item = new ListViewItem(car.GetRegNr());
+            item.SubItems.Add(car.GetMake());
+            item.SubItems.Add(car.GetModel());
+            item.SubItems.Add(car.GetYear().ToString());
+            item.SubItems.Add(car.GetForSale() ? "Yes" : "No");
             return item;
         }
 
@@ -106,6 +115,20 @@ namespace CarApp
             tbxRegNr.Focus();
         }
 
+        private void PrintData(string regNr)
+        {
+            string token = "ZYdERdMQ1BLgQ9DP6hwZpO7ScLeXcJUm";
+            string call = String.Format($"https://api.biluppgifter.se/api/v1/vehicle/regno/{regNr}?api_token={token}");
 
+
+
+            try
+            {
+                WebRequest request = HttpWebRequest.Create(call);
+                WebResponse response = request.GetResponse();
+                StreamReader reader = new StreamReader(response.GetResponseStream());
+                string carJSON = reader.ReadToEnd();
+            }
+        }
     }
 }
