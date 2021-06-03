@@ -15,6 +15,8 @@ namespace CarApp
 {
     public partial class Form1 : Form
     {
+        Database dbObject = new Database();
+
         public Form1()
         {
             InitializeComponent();
@@ -24,7 +26,7 @@ namespace CarApp
 
         private void InitListView()
         {
-            List<Car> cars = dbObject.getRowsFromCars();
+            List<Car> cars = dbObject.GetRowsFromCars();
             foreach (var item in cars)
             {
                 AddCarToListView(item);
@@ -128,6 +130,15 @@ namespace CarApp
                 WebResponse response = request.GetResponse();
                 StreamReader reader = new StreamReader(response.GetResponseStream());
                 string carJSON = reader.ReadToEnd();
+                JObject jsonCar = JObject.Parse(carJSON);
+
+                tbxMake.Text = jsonCar["data"]["basic"]["data"]["make"].ToString();
+                tbxModel.Text = jsonCar["data"]["basic"]["data"]["model"].ToString();
+                tbxYear.Text = jsonCar["data"]["basic"]["data"]["model_year"].ToString();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show($"Car with registration number {regNr} could not be found\n\nMessage: {e.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

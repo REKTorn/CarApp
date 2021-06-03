@@ -19,7 +19,7 @@ namespace CarApp
             {
                 File.Create(databaseFilename);
             }
-            dbConn = new SQLiteConnection("Data Source" + databaseFilename);
+            dbConn = new SQLiteConnection("Data Source=" + databaseFilename);
         }
 
         public void OpenConnection()
